@@ -32,7 +32,7 @@ docker pull oscarcheng77/dsci-310-group-11:latest
 
 2. Run the container using the following command in the terminal:
 ```
-docker run --rm -p 8888:8888 oscarcheng77/dsci-310-group-11:latest
+docker run --rm -p 8888:8888 -v "$(pwd):/home/jovyan/work" oscarcheng77/dsci-310-group-11:latest
 ```
 
 This will allow the project to be accessed from the brower at localhost:8888. It will ask for a token for access. The token can be found in the terminal output following a url with the form `?token=`
