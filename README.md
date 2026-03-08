@@ -19,18 +19,19 @@ The project has the following dependencies:
 - pandas (2.2.0)
 - matplotlib (3.8.3)
 - seaborn (0.13.2)
-- scikit-learn (1.4.1)
+- scikit-learn (1.4.2)
 
 ## Installation
 The project utilizes Docker for dependencies. Ensure you have Docker installed and running. To set up the Docker environment, do the following.
 
-1. Build the docker image by inputing the following code into the terminal, replacing `<project-name>` with the desired name for the image.
+1. Pull the pre-built Docker image from Docker Hub by running the following command in your terminal:
 
-```docker build -t <project-name> .```
+```bash
+docker pull oscarcheng77/dsci-310-group-11:latest
 
 2. Run the container using the following command in the terminal:
 
-```docker run --rm -p 8888:8888 <project-name>```
+docker run --rm -p 8888:8888 oscarcheng77/dsci-310-group-11:latest
 
 This will allow the project to be accessed from the brower at localhost:8888. It will ask for a token for access. The token can be found in the terminal output following a url with the form `?token=`
 
