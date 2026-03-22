@@ -41,45 +41,52 @@ This project uses Docker to containerize the computational environment and GNU M
 
 ### 1. Start the Docker Container
 
-First, clone this repository and navigate to its root directory in your terminal. Then, use the command appropriate for your operating system to launch the container and mount the volume.
+First, clone this repository and navigate to its root directory in your terminal. Then, use the command appropriate for your operating system to launch the container and mount the volume:
 
 #### For Mac/Linux (or Git Bash on Windows)
 
+```bash
 docker run --rm -p 8888:8888 -v "$(pwd):/home/jovyan/work" oscarcheng77/dsci-310-group-11:latest
+```
 
 #### For Windows (PowerShell)
 
+```powershell
 docker run --rm -p 8888:8888 -v "${PWD}:/home/jovyan/work" oscarcheng77/dsci-310-group-11:latest
+```
 
 #### For Windows (Command Prompt)
 
+```cmd
 docker run --rm -p 8888:8888 -v "%cd%:/home/jovyan/work" oscarcheng77/dsci-310-group-11:latest
+```
 
-### 2. Run the Automated Pipeline
+### 2.Access the Environment
 
-Once the container is running, copy the generated URL (e.g., http://127.0.0.1:8888/lab?token=...) from the terminal and paste it into your browser to open JupyterLab.
+Once the container is running, copy the generated URL (e.g., `http://127.0.0.1:8888/lab?token=...`) from the terminal and paste it into your browser to open JupyterLab.
 
-Inside JupyterLab, open a terminal:
+### 3.Run the Automated Pipeline
 
-File -> New -> Terminal
-
-To run the full pipeline:
-
-make all
-
-### 3. Clean the Environment
-
-To remove all generated files:
-
-make clean
-
-This will allow the project to be accessed from the browser at `localhost:8888`. It will ask for a token for access. The token can be found in the terminal output in a URL containing `?token=`.
-
-## Pipeline Overview
+Inside JupyterLab, open a terminal via:
+**File** -> **New** -> **Terminal**
 
 The `Makefile` automates the workflow through the following dependency structure:
 
 `data_generator.py` (raw CSV) → `data_processor.py` (processed CSV) → EDA and modeling scripts (plots) → Quarto (final HTML report)
+
+To run the full pipeline (download data, preprocess, generate plots, and render report), execute:
+
+```bash
+make all
+```
+
+### 4. Clean the Environment
+
+To remove all generated files and reset the project state:
+
+```bash
+make clean
+```
 
 ## Licensing
 
